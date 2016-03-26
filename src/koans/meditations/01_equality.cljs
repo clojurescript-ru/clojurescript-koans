@@ -1,30 +1,29 @@
 (ns koans.meditations.equality)
 
 (def koans '(
-  "We shall contemplate truth by testing reality, via equality"
-  (= :__ true)
+             "Созерцайте истину проверяя реальность с помощью равенства"
+             (= :__ true)
 
-  "To understand reality, we must compare our expectations against reality"
-  (= :__ (+ 1 1))
+             "Сравнивайте свои ожидания с реальностью, чтобы осознать ее"
+             (= :__ (+ 1 1))
 
-  "You can test equality of many things"
-  (= (+ 3 4) 7 (+ 2 :__))
+             "Проверка равенства возможна для нескольких сущностей одновременно"
+             (= (+ 3 4) 7 (+ 2 :__))
 
-  "But you may not string yourself along"
-  (= :__ (= 2 "2"))
+             "Сущности не всегда равны"
+             (= :__ (= 2 "2"))
 
-  "Something is not equal to nothing"
-  (= :__ (not (= 1 nil)))
+             "Сущность не является пустотой"
+             (= :__ (not (= 1 nil)))
 
-  "Strings, and keywords, and symbols: oh my!"
-  (= :__ (= "foo" :foo 'foo))
+             "Новые сущности: строки, ключевые слова и символы!"
+             (= :__ (= "foo" :foo 'foo))
 
-  "Make a keyword with your keyboard"
-  (= :foo (keyword :__))
+             "Строка может стать ключевым словом"
+             (= :foo (keyword :__))
 
-  "Symbolism is all around us"
-  (= 'foo (symbol :__))
+             "А может и символом"
+             (= 'foo (symbol :__))
 
-  "When things cannot be equal, they must be different"
-  (not= :fill-in-the-blank :__)
-))
+             "Неравные сущности отличаются"
+             (not= :fill-in-the-blank :__)))

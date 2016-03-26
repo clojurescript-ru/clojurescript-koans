@@ -1,35 +1,35 @@
 (ns koans.meditations.lists)
 
 (def koans '(
-  "Lists can be expressed by function or a quoted form"
-  (= '(:__) (list 1 2 3 4 5))
+             "Списки могут быть выражены функцией или кавычкой"
+             (= '(:__) (list 1 2 3 4 5))
 
-  "They are Clojure seqs (sequences), so they allow access to the first"
-  (= :__ (first '(1 2 3 4 5)))
-;
-  "As well as the rest"
-  (= :__ (rest '(1 2 3 4 5)))
+             "Списки — это последовательности, у них можно взять первый элемент"
+             (= :__ (first '(1 2 3 4 5)))
 
-  "Count your blessings"
-  (= :__ (count '(dracula dooku chocula)))
+             "И все остальные тоже"
+             (= :__ (rest '(1 2 3 4 5)))
 
-  "Before they are gone"
-  (= :__ (count '()))
+             "Посчитайте количество элементов в списке"
+             (= :__ (count '(dracula dooku chocula)))
 
-  "The rest, when nothing is left, is empty"
-  (= :__ (rest '(100)))
+             "Перед тем, как они исчезнут"
+             (= :__ (count '()))
 
-  "Construction by adding an element to the front is easy"
-  (= :__ (cons :a '(:b :c :d :e)))
+             "Когда ничего нету, остаток пуст"
+             (= :__ (rest '(100)))
 
-  "Conjoining an element to a list is strikingly similar"
-  (= :__ (conj '(:b :c :d :e) :a))
+             "Сущности можно добавлять в начало списка"
+             (= :__ (cons :a '(:b :c :d :e)))
 
-  "You can use a list like a stack to get the first element"
-  (= :__ (peek '(:a :b :c :d :e)))
+             "Эта операция работает точно так же"
+             (= :__ (conj '(:b :c :d :e) :a))
 
-  "Or the others"
-  (= :__ (pop '(:a :b :c :d :e)))
+             "Список можно использовать как стопку, забирая первый элемент"
+             (= :__ (peek '(:a :b :c :d :e)))
+
+             "Или все остальные"
+             (= :__ (pop '(:a :b :c :d :e)))))
 
   ;; ---
   ;"But watch out if you try to pop nothing"
@@ -44,4 +44,3 @@
   ;        (catch IllegalStateException e
   ;          "No dice!")))
   ;))
-))

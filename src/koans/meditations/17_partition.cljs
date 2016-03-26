@@ -1,21 +1,20 @@
 (ns koans.meditations.partition)
 
 (def koans '(
-  "To split a collection you can use the partition function"
-  "(= '((0 1) (2 3)) (:__ 2 (range 4)))"
+             "Для разделения коллекций используйте функцию partition"
+             "(= '((0 1) (2 3)) (:__ 2 (range 4)))"
 
-  "But watch out if there are not enough elements to form n sequences"
-  (= '(:__) (partition 3 [:a :b :c :d :e]))
+             "Когда элементов недостаточно для формирования последней части, вся партиция отбрасывается"
+             (= '(:__) (partition 3 [:a :b :c :d :e]))
 
-  "You can use partition-all to also get partitions with less than n elements"
-  (= :__ (partition-all 3 (range 5)))
+             "Чтобы оставить партицию с недостаточным количеством элементов используйте функцию partition-all"
+             (= :__ (partition-all 3 (range 5)))
 
-  "If you need to, you can start each sequence with an offset"
-  "(= '((0 1 2) (5 6 7) (10 11 12)) (partition 3 :__ (range 13)))"
+             "Можно задать шаг между партициями"
+             "(= '((0 1 2) (5 6 7) (10 11 12)) (partition 3 :__ (range 13)))"
 
-  "Consider padding the last sequence with some default values.."
-  "(= '((0 1 2) (3 4 5) (6 :hello)) (partition 3 3 [:__] (range 7)))"
+             "Недостающие элементы в последней партиции можно заполнить из коллекции заданных элементов"
+             "(= '((0 1 2) (3 4 5) (6 :hello)) (partition 3 3 [:__] (range 7)))"
 
-  ".. but notice that they will only pad up to given sequence length"
-  "(= '( (0 1 2) (3 4 5) :__) (partition 3 3 [:this :are \"my\" \"words\"] (range 7)))"
-))
+             "Но заполнено будет ровно столько слотов, сколько не хватает в последней партиции"
+             "(= '( (0 1 2) (3 4 5) :__) (partition 3 3 [:this :are \"my\" \"words\"] (range 7)))"))

@@ -1,42 +1,42 @@
 (ns koans.meditations.datatypes)
 
 (def koans '(
-  "Holding records is meaningful only when the record is worthy of you"
-  (= :__ (:prize (Nobel. "peace")))
+             "Holding records is meaningful only when the record is worthy of you"
+             (= :__ (:prize (Nobel. "peace")))
 
-  "Types are quite similar"
-  (= :__ (.prize (Pulitzer. "literature")))
+             "Types are quite similar"
+             (= :__ (.prize (Pulitzer. "literature")))
 
-  "Records may be treated like maps"
-  (= :__ (:prize (Nobel. "physics")))
+             "Records may be treated like maps"
+             (= :__ (:prize (Nobel. "physics")))
 
-  "While types may not"
-  (= :__ (:prize (Pulitzer. "poetry")))
+             "While types may not"
+             (= :__ (:prize (Pulitzer. "poetry")))
 
-  "Further study reveals why"
-  (= :__
-     (map map? [(Nobel. "chemistry")
-                (Pulitzer. "music")]))
+             "Further study reveals why"
+             (= :__
+                (map map? [(Nobel. "chemistry")
+                           (Pulitzer. "music")]))
 
-  "Either sort of datatype can define methods in a protocol"
-  (= :__
-     (with-out-str (present (Oscar. "Best Picture") "Evil Alien Conquerors")))
+             "Either sort of datatype can define methods in a protocol"
+             (= :__
+                (with-out-str (present (Oscar. "Best Picture") "Evil Alien Conquerors")))
 
-  #_(
-  "Surely we can implement our own by now"
-  (= "You're really the Worst Picture, Final Destination 5... sorry."
-     (with-out-str (present (Razzie. "Worst Picture") "Final Destination 5")))
-  )
-))
+             #_(
+                "Surely we can implement our own by now"
+                (= "You're really the Worst Picture, Final Destination 5... sorry."
+                   (with-out-str (present (Razzie. "Worst Picture") "Final Destination 5"))))))
+
+
 
 (def fns [
-  '(defrecord Nobel [prize])
-  '(deftype Pulitzer [prize])
+          '(defrecord Nobel [prize])
+          '(deftype Pulitzer [prize])
 
-  "(defprotocol Award
+          "(defprotocol Award
     (present [this recipient]))"
 
-  "(defrecord Oscar [category]
+          "(defrecord Oscar [category]
     Award
     (present [this recipient]
       (print (str \"Congratulations on your \"
@@ -44,8 +44,7 @@
                   recipient
                   \"!\"))))"
 
-  "(deftype Razzie [category]
+          "(deftype Razzie [category]
     Award
     (present [this recipient]
-      :__))"
-])
+      :__))"])

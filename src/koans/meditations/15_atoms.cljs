@@ -1,38 +1,37 @@
 (ns koans.meditations.atoms)
 
 (def koans '(
-  "Atoms are references to values"
-  "(= :__ (deref atomic-clock))"
+             "Атом — это ссылка на значения"
+             "(= :__ (deref atomic-clock))"
 
-  "You can get its value more succintly"
-  "(= :__ @atomic-clock)"
+             "Более удобный способ получения значения из атома"
+             "(= :__ @atomic-clock)"
 
-  "You can even change at the swap meet"
-  "(= :__ (do
+             "Значение можно изменить с помощью функции"
+             "(= :__ (do
           (swap! atomic-clock inc)
           @atomic-clock))"
 
-  "Keep taxes out of this: swapping requires no transaction"
-  "(= 5 (do
+             "Попробуйте изменить значение"
+             "(= 5 (do
          :__
          @atomic-clock))"
 
-  "Any number of arguments might happen during a swap"
-  "(= :__ (do
+             "Для изменяющей функции можно задать дополнительные аргументы"
+             "(= :__ (do
           (swap! atomic-clock + 1 2 3 4 5)
           @atomic-clock))"
 
-  "Atomic atoms are atomic"
-  "(= :__ (do
+             "Можно установить проверку текущего значения для изменения с условием"
+             "(= :__ (do
           (compare-and-set! atomic-clock 100 :fin)
           @atomic-clock))"
 
-  "When your expectations are aligned with reality things, proceed that way"
-  "(= :fin (do
+             "Попробуйте установить правильную проверку"
+             "(= :fin (do
             (compare-and-set! :__)
-            @atomic-clock))"
-))
+            @atomic-clock))"))
+
 
 (def fns [
-  '(def atomic-clock (atom 0))
-])
+          '(def atomic-clock (atom 0))])

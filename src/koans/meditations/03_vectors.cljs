@@ -1,33 +1,29 @@
 (ns koans.meditations.vectors)
 
 (def koans '(
-  "You can use vectors in clojure as array-like structures"
-  (= :__ (count [42]))
+             "Векторы похожи на массивы"
+             (= :__ (count [42]))
 
-  "You can create a vector from a list"
-  (= :__ (vec '(1)))
+             "Их можно создавать из списков"
+             (= :__ (vec '(1 2)))
 
-  "Or from some elements"
-  (= :__ (vector nil nil))
+             "Или из других элементов"
+             (= :__ (vector nil nil))
 
-  "But you can populate it with any number of elements at once"
-  (= [1 :__] (vec '(1 2)))
+             "Присоединение к вектору работает не так, как со списками"
+             (= :__ (conj [111 222] 333))
 
-  "Conjoining to a vector is different than to a list"
-  (= :__ (conj [111 222] 333))
+             "Но получение первого элемента работает точно так же"
+             (= :__ (first [:peanut :butter :and :jelly]))
 
-  "You can get the first element of a vector like so"
-  (= :__ (first [:peanut :butter :and :jelly]))
+             "Можно взять и последний элемент"
+             (= :__ (last [:peanut :butter :and :jelly]))
 
-  "And the last in a similar fashion"
-  (= :__ (last [:peanut :butter :and :jelly]))
+             "Или любой другой по индексу"
+             (= :__ (nth [:peanut :butter :and :jelly] 2))
 
-  "Or any index if you wish"
-  (= :__ (nth [:peanut :butter :and :jelly] 3))
+             "Из вектора можно вырезать другой вектор"
+             (= :__ (subvec [:peanut :butter :and :jelly] 1 3))
 
-  "You can also slice a vector"
-  (= :__ (subvec [:peanut :butter :and :jelly] 1 3))
-
-  "Equality with collections is in terms of values"
-  (= (list 1 2 3) (vector 1 2 :__))
-))
+             "Коллекции сравниваются по элементам"
+             (= (list 1 2 3) (vector 1 2 :__))))

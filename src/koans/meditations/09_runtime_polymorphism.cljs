@@ -1,39 +1,38 @@
 (ns koans.meditations.runtime-polymorphism)
 
 (def koans '(
-  "Some functions can be used in different ways - with no arguments"
-  (= :__ (hello))
+             "Некоторые функции могут быть вызваны без аргументов"
+             (= :__ (hello))
 
-  "With one argument"
-  (= :__ (hello "world"))
+             "С одним аргументом"
+             (= :__ (hello "world"))
 
-  "Or with many arguments"
-  (= :__
-     (hello "Peter" "Paul" "Mary"))
+             "Или с несколькими аргументами"
+             (= :__
+                (hello "Peter" "Paul" "Mary"))
 
-  "Multimethods allow more complex dispatching"
-  (= "Bambi eats veggies."
-     (diet {:species "deer" :name "Bambi" :age 1 :eater :herbivore}))
+             "Мультиметоды дают более сложный механизм диспетчеризации"
+             (= "Bambi eats veggies."
+                (diet {:species "deer" :name "Bambi" :age 1 :eater :herbivore}))
 
-  "Different methods are used depending on the dispatch function result"
-  (= "Simba eats animals."
-     (diet {:species "lion" :name "Simba" :age 1 :eater :carnivore}))
+             "Функция-диспетчер возвращает значение по которому определяется необходимый метод"
+             (= "Simba eats animals."
+                (diet {:species "lion" :name "Simba" :age 1 :eater :carnivore}))
 
-  "You may use a default method when no others match"
-  (= "I don't know what Rich Hickey eats."
-     (diet {:name "Rich Hickey"}))
-))
+             "Если метод не найден, то будет вызван метод определенный как метод по умолачнию"
+             (= "I don't know what Rich Hickey eats."
+                (diet {:name "Rich Hickey"}))))
+
 
 (def fns [
-  "(defn hello
+          "(defn hello
   ([] \"Hello World!\")
   ([a] (str \"Hello, you silly \" a \".\"))
   ([a & more] (str \"Hello to this group: \"
                    (apply str
                           (interpose \", \" (concat (list a) more)))
                    \"!\")))"
-  "(defmulti diet (fn [x] (:eater x)))"
-  "(defmethod diet :herbivore [a] :__)"
-  "(defmethod diet :carnivore [a] :__)"
-  "(defmethod diet :default [a] :__)"
-])
+          "(defmulti diet (fn [x] (:eater x)))"
+          "(defmethod diet :herbivore [a] :__)"
+          "(defmethod diet :carnivore [a] :__)"
+          "(defmethod diet :default [a] :__)"])
